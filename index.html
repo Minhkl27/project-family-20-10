@@ -5,210 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Family 20-10 | Cây Gia Phả Yêu Thương</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* CSS để iframe chiếm toàn bộ màn hình và loại bỏ viền/thanh cuộn không mong muốn */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            /* Ẩn thanh cuộn của trang chính */
+        }
+
+        #content-frame {
+            border: none;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Trình phát nhạc nền -->
+    <!-- Giả sử bạn có tệp nhạc tại assets/music/background-music.mp3 -->
+    <audio id="background-audio" src="assets/music/background-music.mp3" loop autoplay></audio>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo">🌸 Chúc mừng 20-10</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="public/ton_vinh.html">Trang Tôn Vinh</a></li>
-                    <li><a href="public/album.html">Album Kỷ Niệm</a></li>
-                    <li><a href="public/so-tay-yeu-thuong.html">Sổ Tay Yêu Thương</a></li>
-                    <li><a href="public/lich-gia-dinh.html">Lịch Gia Đình</a></li>
-                </ul>
-            </nav>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </header>
+    <!-- Iframe để hiển thị nội dung các trang con -->
+    <iframe id="content-frame" name="content-frame" src="home.html"></iframe>
 
-    <main>
-        <section class="hero-banner">
-            <div class="banner-slideshow">
-                <div class="slide" style="background-image: url('assets/images/family-portraits/ba.jpg');"></div>
-                <div class="slide" style="background-image: url('assets/images/family-portraits/bac_giang.jpg');"></div>
-                <div class="slide" style="background-image: url('assets/images/family-portraits/me_hanh.jpg');"></div>
-                <div class="slide" style="background-image: url('assets/images/family-portraits/mo_nhien.jpg');"></div>
-                <div class="slide" style="background-image: url('assets/images/family-portraits/mo_hao.jpg');"></div>
-                <div class="slide" style="background-image: url('assets/images/family-portraits/chi_phuc.jpg');"></div>
-                <div class="slide" style="background-image: url('assets/images/family-portraits/em_nhan.jpg');"></div>
-                <div class="slide" style="background-image: url('assets/images/family-portraits/phuong_anh.jpg');">
-                </div>
-            </div>
-            <div class="banner-overlay"></div>
-            <div class="banner-content">
-                <h1>20/10 - Ngày Phụ Nữ Việt Nam 🇻🇳</h1>
-                <p>Gửi ngàn lời yêu thương và lòng biết ơn sâu sắc đến những người phụ nữ tuyệt vời nhất của gia đình
-                    ta.
-                </p>
-            </div>
-        </section>
+    <script>
+        // Xử lý chính sách chặn autoplay của trình duyệt
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('background-audio');
+            // Thử phát nhạc
+            const promise = audio.play();
 
-        <section class="welcome-section container">
-            <h2>Lời Chúc Từ Trái Tim</h2>
-            <p>Đây là món quà tinh thần nhỏ bé mà các con, các cháu muốn dành tặng Bà, Bác, Mẹ và các Mợ. Mỗi hình ảnh,
-                mỗi câu chữ ở đây đều chứa đựng tình yêu, sự kính trọng và lòng biết ơn vô hạn của chúng con.</p>
-        </section>
-
-        <section class="tribute-section container">
-            <div class="tribute-grid">
-                <!-- Card cho Bà -->
-                <a href="public/tributes/ba.html" class="person-card" style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/ba.jpg" alt="Hình ảnh Bà">
-                    <div class="person-card-content">
-                        <h3>Bà</h3>
-                        <p class="role">"Cội nguồn"</p>
-                    </div>
-                </a>
-                <!-- Card cho Bác Giang -->
-                <a href="public/tributes/bac-giang.html" class="person-card"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/bac_giang.jpg" alt="Hình ảnh Bác Giang">
-                    <div class="person-card-content">
-                        <h3>Bác Giang</h3>
-                        <p class="role">"Người Chị Cả"</p>
-                    </div>
-                </a>
-                <!-- Card cho Mẹ Hạnh -->
-                <a href="public/tributes/me-hanh.html" class="person-card"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/me_hanh.jpg" alt="Hình ảnh Mẹ Hạnh">
-                    <div class="person-card-content">
-                        <h3>Mẹ Hạnh</h3>
-                        <p class="role">"Người Giữ Lửa"</p>
-                    </div>
-                </a>
-                <!-- Card cho Mợ Nhiễn -->
-                <a href="public/tributes/mo-nhien.html" class="person-card"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/mo_nhien.jpg" alt="Hình ảnh Mợ Nhiễn">
-                    <div class="person-card-content">
-                        <h3>Mợ Nhiễn</h3>
-                        <p class="role">"Nghệ sĩ/Người Mơ Mộng"</p>
-                    </div>
-                </a>
-                <!-- Card cho Mợ Hảo -->
-                <a href="public/tributes/mo-hao.html" class="person-card"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/mo_hao.jpg" alt="Hình ảnh Mợ Hảo">
-                    <div class="person-card-content">
-                        <h3>Mợ Hảo</h3>
-                        <p class="role">"Nữ Công Gia Chánh"</p>
-                    </div>
-                </a>
-                <!-- Card cho Chị Phúc -->
-                <a href="public/tributes/chi-phuc.html" class="person-card"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/chi_phuc.jpg" alt="Hình ảnh Chị Phúc">
-                    <div class="person-card-content">
-                        <h3>Chị Phúc</h3>
-                        <p class="role">"Thế Hệ Tiếp Nối"</p>
-                    </div>
-                </a>
-                <!-- Card cho Em Nhàn -->
-                <a href="public/tributes/em-nhan.html" class="person-card"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/em_nhan.jpg" alt="Hình ảnh Em Nhàn">
-                    <div class="person-card-content">
-                        <h3>Em Nhàn</h3>
-                        <p class="role">"Thế Hệ Tiếp Nối"</p>
-                    </div>
-                </a>
-                <!-- Card cho Phương Anh -->
-                <a href="public/tributes/phuong-anh.html" class="person-card"
-                    style="text-decoration: none; color: inherit;">
-                    <img src="assets/images/family-portraits/phuong_anh.jpg" alt="Hình ảnh Phương Anh">
-                    <div class="person-card-content">
-                        <h3>Phương Anh</h3>
-                        <p class="role">"Thế Hệ Tiếp Nối"</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="grandchildren-section">
-            <div class="container">
-                <h2>Thế Hệ Tiếp Nối</h2>
-                <div class="grandchildren-grid">
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/chi_phuc.jpg" alt="Hình ảnh Chị Phúc">
-                        <h4>Chị Phúc</h4>
-                        <p>Con gái Bác Giang</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/em_nhan.jpg" alt="Hình ảnh Em Nhàn">
-                        <h4>Em Nhàn</h4>
-                        <p>Con gái Mợ Nhiễn</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/phuong_anh.jpg" alt="Hình ảnh Phương Anh">
-                        <h4>Phương Anh</h4>
-                        <p>Con gái Mợ Nhiễn</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/anh_duy.jpg" alt="Hình ảnh Anh Duy Anh">
-                        <h4>Anh Duy Anh</h4>
-                        <p>Con trai Bác Giang</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/a_tien.jpg" alt="Hình ảnh Anh Tiến">
-                        <h4>Anh Tiến</h4>
-                        <p>Con trai Mẹ Hạnh</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/minh.jpg" alt="Hình ảnh Minh">
-                        <h4>Minh</h4>
-                        <p>Con trai Mẹ Hạnh</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/ben.jpg" alt="Hình ảnh Quốc Bảo">
-                        <h4>Quốc Bảo</h4>
-                        <p>Con trai Mợ Hảo</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/book.jpg" alt="Hình ảnh Duy Khánh">
-                        <h4>Duy Khánh</h4>
-                        <p>Con trai Mợ Hảo</p>
-                    </div>
-                    <div class="grandchild-profile">
-                        <img src="assets/images/family-portraits/gia_hung.jpg" alt="Hình ảnh Gia Hưng">
-                        <h4>Gia Hưng</h4>
-                        <p>Con trai Mợ Hảo</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-logo">🌸 Chúc mừng 20-10</div>
-            <div class="footer-credits">
-                <div>
-                    <p>Làm bằng tất cả tình yêu thương ❤️ Từ các con cháu.</p>
-                    <p>Created by MinhNguyen</p>
-                </div>
-                <img src="assets/images/family-portraits/minh.jpg" alt="Minh" class="creator-avatar">
-            </div>
-        </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/effects.js"></script>
-
+            if (promise !== undefined) {
+                promise.catch(error => {
+                    // Autoplay bị chặn. Chúng ta sẽ đợi người dùng tương tác lần đầu.
+                    console.log('Autoplay bị chặn. Cần người dùng tương tác.');
+                    // Thêm một sự kiện lắng nghe click trên toàn bộ trang
+                    // Khi người dùng click lần đầu, nhạc sẽ phát và sự kiện này sẽ tự hủy
+                    document.body.addEventListener('click', () => audio.play(), { once: true });
+                    document.body.addEventListener('touchstart', () => audio.play(), { once: true });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
