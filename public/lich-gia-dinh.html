@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Gia Đình | Project Family 20-10</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">🌸 Chúc mừng 20-10</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Trang Chủ</a></li>
+                    <li><a href="tributes/index.html">Trang Tôn Vinh</a></li>
+                    <li><a href="album.html">Album Kỷ Niệm</a></li>
+                    <li><a href="so-tay-yeu-thuong.html">Sổ Tay Yêu Thương</a></li>
+                    <li><a href="lich-gia-dinh.html">Lịch Gia Đình</a></li>
+                </ul>
+            </nav>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Lịch Gia Đình</h1>
+            <p>Để chúng ta không bao giờ quên những ngày yêu thương quan trọng.</p>
+        </section>
+
+        <div class="main-content container">
+            <!-- Form để thêm sự kiện mới -->
+            <section class="form-section">
+                <h2>Thêm Ngày Quan Trọng</h2>
+                <form id="event-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-day">Ngày</label>
+                            <input type="number" id="event-day" name="event-day" placeholder="DD" min="1" max="31">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-month">Tháng</label>
+                            <input type="number" id="event-month" name="event-month" placeholder="MM" min="1" max="12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-title">Tên sự kiện</label>
+                        <input type="text" id="event-title" name="event-title" placeholder="Ví dụ: Sinh nhật Mẹ Hạnh">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-description">Mô tả (không bắt buộc)</label>
+                        <input type="text" id="event-description" name="event-description"
+                            placeholder="Ghi chú thêm...">
+                    </div>
+                    <button type="submit" class="submit-btn">Lưu Sự Kiện 🗓️</button>
+                </form>
+            </section>
+
+            <ul class="event-list" id="event-list">
+                <!-- Sự kiện 20/10 được làm nổi bật -->
+                <li class="event-item highlight">
+                    <div class="event-date">
+                        <span class="day">20</span>
+                        <span class="month">Tháng 10</span>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="title">Ngày Phụ Nữ Việt Nam</h3>
+                        <p class="description">Ngày để tôn vinh và gửi lời tri ân đến tất cả những người phụ nữ tuyệt
+                            vời trong gia đình.</p>
+                    </div>
+                </li>
+                <!-- Các sự kiện khác -->
+                <li class="event-item">
+                    <div class="event-date">
+                        <span class="day">DD</span>
+                        <span class="month">Tháng MM</span>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="title">Sinh nhật Bà</h3>
+                        <p class="description">Ngày sum vầy chúc mừng sinh nhật Bà.</p>
+                    </div>
+                </li>
+                <li class="event-item">
+                    <div class="event-date">
+                        <span class="day">DD</span>
+                        <span class="month">Tháng MM</span>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="title">Sinh nhật Bác Giang</h3>
+                        <p class="description">Chúc mừng sinh nhật người chị cả của gia đình.</p>
+                    </div>
+                </li>
+                <li class="event-item">
+                    <div class="event-date">
+                        <span class="day">DD</span>
+                        <span class="month">Tháng MM</span>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="title">Kỷ niệm ngày cưới Ông Bà</h3>
+                        <p class="description">Cùng nhau ôn lại kỷ niệm ngày Ông Bà về chung một nhà.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-logo">🌸 Chúc mừng 20-10</div>
+            <div class="footer-credits">
+                <div>
+                    <p>Làm bằng tất cả tình yêu thương ❤️ Từ các con cháu.</p>
+                    <p>Created by MinhNguyen</p>
+                </div>
+                <img src="../assets/images/family-portraits/minh.jpg" alt="Minh" class="creator-avatar">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Cấu hình Firebase của bạn
+        const firebaseConfig = {
+            apiKey: "AIzaSyBMVK07HIhMhLjdFrN7CdrnP-z8av8eIRY",
+            authDomain: "project-family-20-10.firebaseapp.com",
+            projectId: "project-family-20-10",
+            storageBucket: "project-family-20-10.appspot.com",
+            messagingSenderId: "78461654601",
+            appId: "1:78461654601:web:44232a36a9a32bbb7e9198"
+        };
+
+        // Khởi tạo Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/calendar.js"></script>
+    <script src="../assets/js/effects.js"></script>
+
+</body>
+
+</html>

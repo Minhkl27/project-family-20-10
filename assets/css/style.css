@@ -1,0 +1,1237 @@
+:root {
+    --bg-color: #fdfaf6;
+    --text-color: #333;
+    --primary-color: #4a5c43;
+    /* Dark Green */
+    --secondary-color: #c8a28a;
+    /* Light Brown */
+    --accent-color: #e6c2c2;
+    /* Light Pink */
+    --card-bg: #ffffff;
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    background-image: url("");
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+.main-header {
+    background-color: var(--bg-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.main-nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Footer */
+.main-footer {
+    background: linear-gradient(135deg, #ee9ca7, #ffdde1);
+    color: black;
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: 0;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.footer-credits {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.footer-credits p {
+    margin: 0;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.creator-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Page Specific Styles --- */
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Banner (index.html) */
+.hero-banner {
+    background: linear-gradient(135deg, #f8d5d5, #fdfaf6);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 120px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-banner h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin: 0;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-banner p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+/* Welcome Section (index.html, tributes/index.html) */
+.welcome-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.welcome-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    color: var(--primary-color);
+}
+
+.welcome-section p {
+    max-width: 700px;
+    margin: 20px auto 0;
+    font-size: 1.1em;
+}
+
+/* Tribute Section (index.html, tributes/index.html) */
+.tribute-section {
+    padding-bottom: 80px;
+}
+
+.tribute-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.person-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.person-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.person-card-content {
+    padding: 25px;
+}
+
+.person-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.person-card .role {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Grandchildren Section (index.html) */
+.grandchildren-section {
+    padding: 60px 0 80px;
+    background-color: #f9f5f0;
+}
+
+.grandchildren-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.grandchildren-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.grandchild-profile {
+    text-align: center;
+}
+
+.grandchild-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--card-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.grandchild-profile h4 {
+    margin: 15px 0 5px;
+    font-family: var(--font-heading);
+    font-size: 1.4em;
+    color: var(--primary-color);
+}
+
+.grandchild-profile p {
+    margin: 0;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Page Header (album, lich, so-tay) */
+.page-header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8d5d5, #fdfaf6);
+    overflow: hidden;
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    color: var(--primary-color);
+    margin: 0;
+    animation: fadeInDown 1s ease-out;
+}
+
+.page-header p {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    font-style: italic;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+/* Main Content (Shared) */
+.main-content {
+    padding: 60px 0;
+}
+
+/* Filter Buttons (album.html) */
+.filter-controls {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Gallery Grid (album.html, tributes/me-hanh, tributes/mo-nhien) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+/* Lightbox Styles (album.html) */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+    animation: zoom 0.4s ease;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0.7);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Event List (lich-gia-dinh.html) */
+.event-list {
+    list-style: none;
+    padding: 0;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.event-item.highlight {
+    border-color: var(--primary-color);
+    background-color: #f9f5f0;
+}
+
+.event-date {
+    text-align: center;
+    margin-right: 25px;
+    padding-right: 25px;
+    border-right: 1px solid #eee;
+}
+
+.event-date .day {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.event-date .month {
+    font-size: 1em;
+    color: var(--secondary-color);
+}
+
+.event-details .title {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    margin: 0 0 5px 0;
+    color: var(--primary-color);
+}
+
+.event-details .description {
+    margin: 0;
+    color: #555;
+}
+
+/* Form Section (so-tay-yeu-thuong.html) */
+.form-section {
+    background-color: var(--card-bg);
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
+}
+
+.form-section h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1em;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #3a4a34;
+}
+
+/* Messages Section (so-tay-yeu-thuong.html) */
+.message-list {
+    list-style: none;
+    padding: 0;
+}
+
+.message-item {
+    background-color: var(--card-bg);
+    border-left: 5px solid var(--accent-color);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+}
+
+.message-author {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.message-recipient {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+.message-body {
+    font-size: 1.05em;
+}
+
+/* Edit Message Button */
+.edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8em;
+    color: var(--secondary-color);
+    margin-left: 10px;
+}
+
+.edit-btn:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Edit Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    animation: zoom 0.3s ease;
+}
+
+.modal-close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+/* Profile Header (tributes/*) */
+.profile-header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8d5d5, #fdfaf6);
+    overflow: hidden;
+}
+
+.profile-header h1 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    color: var(--primary-color);
+    margin: 0;
+    animation: fadeInDown 1s ease-out;
+}
+
+.profile-header .role {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    font-style: italic;
+    margin-top: 10px;
+    animation: fadeInUp 1s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+/* Section Title (tributes/*) */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Content Section (tributes/bac-giang, mo-nhien, mo-hao) */
+.content-section {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.content-section h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Timeline - Cây Đời (tributes/ba.html) */
+.timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--secondary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: -8px;
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.right::after {
+    left: -8px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* Quotes - Lời Vàng (tributes/ba.html) */
+.quotes-section {
+    padding-top: 40px;
+}
+
+.quote {
+    background: #f9f5f0;
+    border-left: 5px solid var(--secondary-color);
+    margin: 20px 0;
+    padding: 20px 30px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+/* Recipe Section (tributes/me-hanh.html) */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-card-content {
+    padding: 20px;
+}
+
+.recipe-card h4 {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+/* Tip List (tributes/mo-hao.html) */
+.tip-list li {
+    margin-bottom: 10px;
+}
+
+/* --- Special Styles for Ba's Page --- */
+
+/* Override the default page header for Ba's page */
+.page-ba .profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x400/ccc/888?text=Ảnh+chân+dung+Bà');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 20px;
+}
+
+.page-ba .profile-header h1 {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.page-ba .profile-header .role {
+    color: #f1f1f1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Redesign Timeline */
+.page-ba .timeline {
+    margin-top: 50px;
+}
+
+.page-ba .timeline-item::after {
+    content: attr(data-icon);
+    /* Use icon from data-icon attribute */
+    font-family: 'Times New Roman', Times, serif;
+    /* A simple font for emoji/symbol */
+    width: 40px;
+    height: 40px;
+    right: -21px;
+    background-color: var(--bg-color);
+    border: 3px solid var(--secondary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.page-ba .right::after {
+    left: -21px;
+}
+
+.page-ba .timeline-content {
+    background-color: transparent;
+    box-shadow: none;
+    border: 1px solid #eee;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.page-ba .timeline-content:hover {
+    background-color: white;
+}
+
+.page-ba .timeline-content h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+/* Redesign Quotes */
+.page-ba .quote {
+    background: transparent;
+    border: none;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 30px auto;
+    padding: 30px 20px;
+    font-size: 1.2em;
+    font-style: italic;
+    text-align: center;
+    max-width: 80%;
+    color: #555;
+}
+
+/* --- Special Styles for Other Pages --- */
+
+/* Me Hanh's Page */
+.page-me-hanh .profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x400/ccc/888?text=Ảnh+nền+Mẹ+Hạnh');
+    color: white;
+}
+
+.page-me-hanh .profile-header h1,
+.page-me-hanh .profile-header .role {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Mo Nhien's Page */
+.page-mo-nhien .profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x400/ccc/888?text=Ảnh+nền+Mợ+Nhiễn');
+    color: white;
+}
+
+.page-mo-nhien .profile-header h1,
+.page-mo-nhien .profile-header .role {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Mo Hao's Page */
+.page-mo-hao .profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x400/ccc/888?text=Ảnh+nền+Mợ+Hảo');
+    color: white;
+}
+
+.page-mo-hao .profile-header h1,
+.page-mo-hao .profile-header .role {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Chi Phuc's Page */
+.page-chi-phuc .profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x400/ccc/888?text=Ảnh+nền+Chị+Phúc');
+    color: white;
+}
+
+.page-chi-phuc .profile-header h1,
+.page-chi-phuc .profile-header .role {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Em Nhan's Page */
+.page-em-nhan .profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x400/ccc/888?text=Ảnh+nền+Em+Nhàn');
+    color: white;
+}
+
+.page-em-nhan .profile-header h1,
+.page-em-nhan .profile-header .role {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Phuong Anh's Page */
+.page-phuong-anh .profile-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://via.placeholder.com/1200x400/ccc/888?text=Ảnh+nền+P.Anh');
+    color: white;
+}
+
+.page-phuong-anh .profile-header h1,
+.page-phuong-anh .profile-header .role {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Falling Flower Effect --- */
+.falling-flower {
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+.falling-flower::before {
+    content: '🌸';
+    /* Bạn có thể dùng các emoji khác như: 💮, 🏵️, 🌺, 🌼 */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+
+    /* --- General Adjustments --- */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* --- Header & Navigation (Hamburger Menu) --- */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10;
+    }
+
+    .menu-toggle .bar {
+        width: 30px;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .main-nav {
+        display: none;
+        /* Hide nav by default */
+    }
+
+    .main-nav.active {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .main-nav a {
+        font-size: 1.5em;
+    }
+
+    /* --- Banners --- */
+    .hero-banner h1,
+    .page-header h1,
+    .profile-header h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-banner,
+    .page-header,
+    .profile-header {
+        padding: 80px 20px;
+    }
+
+    /* --- Grids --- */
+    .tribute-grid,
+    .recipe-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        /* Stack to 1 column */
+    }
+
+    .grandchildren-grid {
+        gap: 30px;
+    }
+
+    /* --- Timeline (Ba's Page) --- */
+    .page-ba .timeline::after {
+        left: 20px;
+    }
+
+    .page-ba .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 15px;
+    }
+
+    .page-ba .timeline-item.left,
+    .page-ba .timeline-item.right {
+        left: 0%;
+    }
+
+    .page-ba .timeline-item::after,
+    .page-ba .right::after {
+        left: 0;
+    }
+
+    /* --- Footer --- */
+    .main-footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-credits {
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* --- Family Tree Styles --- */
+.family-tree-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.family-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.couple,
+.children {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.person-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+.person-node img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--card-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.person-node h4 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.person-node p {
+    margin: 0;
+    color: var(--secondary-color);
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.connector-down {
+    width: 2px;
+    height: 40px;
+    background-color: var(--secondary-color);
+}
+
+.children-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    position: relative;
+    padding-top: 40px;
+    width: 100%;
+}
+
+.children-container::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.family-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.family-unit::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 2px;
+    height: 20px;
+    background-color: var(--secondary-color);
+}
